@@ -25,11 +25,12 @@ const StyledPre = styled.pre<{ theme: any }>`
   border-radius: 0 0 ${defaultBorderRadius} ${defaultBorderRadius} !important;
   max-height: 40vh;
   overflow-y: scroll !important;
-
+  direction: ltr;
+  text-align: left;
   ${(props) => generateThemeStyles(props.theme)}
 `;
 
 export const SyntaxHighlightedPre = (props: any) => {
   const currentTheme = useContext(VscThemeContext);
-  return <StyledPre {...props} theme={currentTheme.theme} />;
+  return <StyledPre {...props} dir="ltr" theme={currentTheme.theme} />;
 };
