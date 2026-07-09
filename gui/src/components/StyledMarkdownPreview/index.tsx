@@ -65,7 +65,8 @@ const StyledMarkdown = styled.div<{
     white-space: ${(props) => props.whiteSpace};
     background-color: ${vscEditorBackground};
     border-radius: ${defaultBorderRadius};
-
+    direction: ltr;
+    text-align: left;
     max-width: calc(100vw - 24px);
     overflow-x: scroll;
     overflow-y: hidden;
@@ -74,6 +75,8 @@ const StyledMarkdown = styled.div<{
   }
 
   code {
+    direction: ltr;
+    unicode-bidi: embed;
     span.line:empty {
       display: none;
     }
@@ -383,6 +386,7 @@ const StyledMarkdownPreview = memo(function StyledMarkdownPreview(
 
   return (
     <StyledMarkdown
+	    dir="auto"
       fontSize={getFontSize()}
       whiteSpace={codeWrapState}
       bgColor={props.useParentBackgroundColor ? "" : vscBackground}
